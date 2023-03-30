@@ -1,4 +1,4 @@
-name: Deploy pages
+name: Build slides and trigger github pages
 permissions: 
   contents: write
 on: 
