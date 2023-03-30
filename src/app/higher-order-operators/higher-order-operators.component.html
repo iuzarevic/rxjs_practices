@@ -1,0 +1,21 @@
+<div *ngIf="(posts$ | async) as posts">
+    <p-dropdown [options]="posts" optionLabel="title" (onChange)="changedPost($event.value)"></p-dropdown>
+</div>
+
+<!-- commentsSwitch$ or commentsConcat$ or commentsMerge$ -->
+<div *ngIf="(commentsMerge$ | async) as comments">
+    <p-table [value]="comments">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Body</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-comment>
+            <tr>
+                <td>{{comment.name}}</td>
+                <td>{{comment.body}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

@@ -1,0 +1,33 @@
+<div *ngIf="(retrievecreatedByAndComments$ | async) as postData">
+    <p>Created by: {{ postData.createdBy }}</p>
+    <p-table [value]="postData.comments">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Body</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-comment>
+            <tr>
+                <td>{{comment.name}}</td>
+                <td>{{comment.body}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<br>
+<div *ngIf="(posts$ | async) as posts">
+    <p-dropdown [options]="posts" optionLabel="title" (onChange)="changedPost($event.value)"></p-dropdown>
+</div>
+<div>
+    <label for="search">Search comments:</label>
+    <input id="search" type="text" [formControl]="search" />
+</div>
+<div *ngIf="(results$ | async) as comments">
+    <div class="box" *ngFor="let currentComment of comments">
+        <p>Id: {{currentComment.id}}</p>
+        <p>Name: {{currentComment.name}}</p>
+        <p>Email: {{currentComment.email}}</p>
+    </div>
+</div>
