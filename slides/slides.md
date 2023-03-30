@@ -13,6 +13,7 @@ layout: cover
 - Common Pitfalls with solutions
 - Other RxJS use cases
 - What's going on with **reactivity** on the web?
+- Resources
 
 ---
 
@@ -197,3 +198,7 @@ export function customOperatorFunction<T>(
     - Improved interoperability with reactive libraries
     - ...
 - Angular 16 (POC with signals) - v16.0.0-next.0
+
+---
+
+# Resources
